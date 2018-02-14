@@ -62,7 +62,7 @@ default ansible_ssh_host=my_ip_or_domain_name
 ```
 Optionally if you need to specify a username, password or port to connect to the server you can specify those in the inventory file as well:
 ```
-default ansible_ssh_host=my_ip_or_domain_name ansible_ssh_user=my_user ansible_ssh_pass=my_super_secret_password ansible_ssh_port=my_port
+default ansible_ssh_host=my_ip_or_domain_name ansible_user=my_user ansible_ssh_pass=my_super_secret_password ansible_ssh_port=my_port
 ```
 More information about inventories can be found in the [ansible documentation](http://docs.ansible.com/ansible/latest/intro_inventory.html).
 1. Update the inventory variables as you see fit to customize your Islandora installation. 
@@ -76,7 +76,7 @@ More information about inventories can be found in the [ansible documentation](h
   1. Any other variable changes you wish.
 1. Install the roles using `ansible-galaxy`: `$ ansible-galaxy install -r requirements.yml`
 1. Provision the server with `$ ansible-playbook -i inventory/production`
-  - If the host you are provisioning is a Ubuntu 16.04 machine, you may wish to have the playbook install Python for you. This is a requirement to run the playbook. You can do this by passing an additional variable on the command line like this. `$ ansible-playbook -i inventory/production -e "islandora_distro=ubuntu/xenial64"`
+  - If the host you are provisioning is a Ubuntu 16.04 machine, you may wish to have the playbook install Python for you. This is a requirement to run the playbook. You can do this by passing an additional variable on the command line like this. `$ ansible-playbook -i inventory/production/hosts playbook.yml -e "islandora_distro=ubuntu/xenial64"`
 
 ## Connect
 
